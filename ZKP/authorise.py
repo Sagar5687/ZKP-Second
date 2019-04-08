@@ -1,6 +1,5 @@
 user=raw_input ('enter your username: ')
-loc = 'server/userdata/'
-file = loc+user+'.txt'
+file='server/userdata/'+user+'.txt'
 
 g = open('server/servervalues/g.txt','r').read()
 g = g.rstrip('\n')
@@ -14,11 +13,13 @@ y = open('server/servervalues/y.txt','r').read()
 y = y.rstrip('\n')
 y = int(y,10)
 
-f = open('server/val1.txt','r').read()
+val1='server/userdata/'+user+'value.txt'
+f = open(val1,'r').read()
 z = f.rstrip('\n')
 A = int(z,10)
 
-c = open('server/challenge.txt','r').read()
+challenge='server/userdata/'+user+'challenge.txt'
+c = open(challenge,'r').read()
 c = c.rstrip('\n')
 c = int(c,10)
 
