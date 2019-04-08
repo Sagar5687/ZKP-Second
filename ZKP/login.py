@@ -31,10 +31,12 @@ val1=pow (g,q,n)
 
 c= pow (g,y,n)
 
-e = open("server/val1.txt", "w")
+val='server/userdata/'+user+'value.txt'
+e = open(val, "w")
 print >> e,val1
 
-f = open("server/challenge.txt", "w")
+challenge='server/userdata/'+user+'challenge.txt'
+f = open(challenge, "w")
 print >> f,c
 
-print "logon information provided. Please run 'authoise' script to authenticate"
+print "logon information provided. Please run 'authorise' script to authenticate"
