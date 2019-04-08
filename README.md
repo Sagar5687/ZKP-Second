@@ -1,7 +1,12 @@
 # ZKP
-ZKP login python script
+ZKP login python scripts
 
-This script is used for a user password to be verified without the password being saved. The user is authorised using the username and the server checks for the a record of that username. then the client must calulate a challenge provided by the server y value and the server makes a calculation with the y value and the record stored for that username. The result of each calculation should be the same showing that the client knows x value without sharing with the server. So the server has zero knowledge of the users text password.
+1st - register a user name and password with reg.py
+2nd - logon the server with login.py
+3rd - Authorise details with authorise.py
+
+
+These scripts are used for a user password to be verified without the password being saved. The user is authorised using the username and the server checks for the a record of that username. Then the client must calulate a challenge provided by the server y value and the server makes a calculation with the y value and the record stored for that username. The result of each calculation should be the same showing that the client knows x value without sharing with the server. So the server has zero knowledge of the users text password.
 
 A generator value is assigned as g 
 
