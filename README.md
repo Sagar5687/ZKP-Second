@@ -23,3 +23,5 @@ The "login" script will then ask the user to enter the username they entered whe
 The "authorise" script then takes these values and calculateds c*secretvalue mod n. This sum should match val1 caluclated previousey. If the value matches then the sensitive data is revealed. If the values have been moddified since the original registration then access will be denied. 
 
 It can be observed from the server file that the x value of the password is not present but the client has proved they know the x value with out sharing. This is zero knowledge proof.
+
+The time function is used to measure the time it takes for scripts to perform calculations for zkp.
