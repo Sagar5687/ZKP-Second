@@ -12,6 +12,8 @@ A generator value is assigned as g
 
 A prime number is assigned as n
 
+Other g and n files with different bit size of numbers are present in the server values folder. for example n8.txt is a 8 bit number.
+
 Y is set as the servers verifier. The value of why is the word "verify" is hashed using the sha 256 function and then the hexidecimal hash converted to decimal.
 
 The "reg" script asks the user to register a user name and password. The password the user chooses is then hashed using sha 256 and the hexidecimal hash is then converted into decimal. The Generator value is then raised to the power of the password hash in decimal format and then modded by the prime number(secretvalue). This is the value saved by the server in a text file named after the username and from this value it is too difficult to compute the original password value.
