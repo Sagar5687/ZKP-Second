@@ -16,7 +16,7 @@ file = loc+user+'.txt'
 secret='client/'+user+'pass.txt'
 
 reg = raw_input('Register your password with the system: ')
-while len(reg) < 2 :
+while len(reg) < 8 :
         reg=raw_input('Password must be more than 8 characters ')
 
 reg2 = raw_input('Please confirm password: ')
