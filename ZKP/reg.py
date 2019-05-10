@@ -1,10 +1,11 @@
+import time
 import hashlib
 
-g = open('server/servervalues/g.txt','r').read()
+g = open('server/servervalues/g64.txt','r').read()
 g = g.rstrip('\n')
 g = int(g,10)
 
-n = open('server/servervalues/n.txt','r').read()
+n = open('server/servervalues/n64.txt','r').read()
 n = n.rstrip('\n')
 n = int(n,10)
 
@@ -15,7 +16,7 @@ file = loc+user+'.txt'
 secret='client/'+user+'pass.txt'
 
 reg = raw_input('Register your password with the system: ')
-while len(reg) < 8 :
+while len(reg) < 2 :
         reg=raw_input('Password must be more than 8 characters ')
 
 reg2 = raw_input('Please confirm password: ')
@@ -45,7 +46,7 @@ else:
 		        print ("..........................")
 
 			break
-
+starta = time.time()
 rkey = hashlib.sha256(reg)
 rkey_dig = rkey.hexdigest()
 x = int(rkey_dig,16)
@@ -57,3 +58,7 @@ print >> f,A
 
 xvalue = open(secret, "w")
 print >> xvalue,x
+enda = time.time()
+print '---------------------'
+print 'Time to complete calculations :'
+print enda - starta

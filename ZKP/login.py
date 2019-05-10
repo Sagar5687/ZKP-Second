@@ -1,10 +1,10 @@
-import hashlib
+import time
 
-g = open('server/servervalues/g.txt','r').read()
+g = open('server/servervalues/g64.txt','r').read()
 g = g.rstrip('\n')
 g = int(g,10)
 
-n = open('server/servervalues/n.txt','r').read()
+n = open('server/servervalues/n64.txt','r').read()
 n = n.rstrip('\n')
 n = int(n,10)
 
@@ -26,6 +26,7 @@ x = open(secret,'r').read()
 x = x.rstrip('\n')
 x = int(x,10)
 
+starta = time.time()
 q = (x+y)%(n-1)
 val1=pow (g,q,n)
 
@@ -39,4 +40,8 @@ challenge='server/userdata/'+user+'challenge.txt'
 f = open(challenge, "w")
 print >> f,c
 
+enda = time.time()
+
 print "logon information provided. Please run 'authorise' script to authenticate"
+print 'Time to complete calculations :'
+print enda - starta

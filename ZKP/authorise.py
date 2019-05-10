@@ -1,11 +1,13 @@
+import time
+
 user=raw_input ('enter your username: ')
 file='server/userdata/'+user+'.txt'
 
-g = open('server/servervalues/g.txt','r').read()
+g = open('server/servervalues/g64.txt','r').read()
 g = g.rstrip('\n')
 g = int(g,10)
 
-n = open('server/servervalues/n.txt','r').read()
+n = open('server/servervalues/n64.txt','r').read()
 n = n.rstrip('\n')
 n = int(n,10)
 
@@ -27,6 +29,7 @@ b = open(file,'r').read()
 b = b.rstrip('\n')
 b = int(b,10)
 
+starta = time.time()
 d = c*b
 
 k2= d % n
@@ -44,3 +47,7 @@ else:
        		print("Wrong Password!")
 		print("Logged out!")
                 break
+enda = time.time()
+
+print 'Time to complete calculations :'
+print enda - starta
