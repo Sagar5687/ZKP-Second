@@ -1,53 +1,45 @@
 import time
 
-user=raw_input ('enter your username: ')
-file='server/userdata/'+user+'.txt'
+user = input('enter your username: ')
+file = 'server/userdata/' + user + '.txt'
 
-g = open('server/servervalues/g64.txt','r').read()
-g = g.rstrip('\n')
-g = int(g,10)
+with open('server/servervalues/g64.txt', 'r') as f:
+    g = int(f.read().strip())
 
-n = open('server/servervalues/n64.txt','r').read()
-n = n.rstrip('\n')
-n = int(n,10)
+with open('server/servervalues/n64.txt', 'r') as f:
+    n = int(f.read().strip())
 
-y = open('server/servervalues/y.txt','r').read()
-y = y.rstrip('\n')
-y = int(y,10)
+with open('server/servervalues/y.txt', 'r') as f:
+    y = int(f.read().strip())
 
-val1='server/userdata/'+user+'value.txt'
-f = open(val1,'r').read()
-z = f.rstrip('\n')
-A = int(z,10)
+val1 = 'server/userdata/' + user + 'value.txt'
+with open(val1, 'r') as f:
+    A = int(f.read().strip())
 
-challenge='server/userdata/'+user+'challenge.txt'
-c = open(challenge,'r').read()
-c = c.rstrip('\n')
-c = int(c,10)
+challenge = 'server/userdata/' + user + 'challenge.txt'
+with open(challenge, 'r') as f:
+    c = int(f.read().strip())
 
-b = open(file,'r').read()
-b = b.rstrip('\n')
-b = int(b,10)
+with open(file, 'r') as f:
+    b = int(f.read().strip())
 
 starta = time.time()
-d = c*b
-
-k2= d % n
+d = c * b
+k2 = d % n
 
 if A == k2:
-	print ("Correct Password")
-	print ("Sucessfully logged into system")
-	print ("==============================")
-	data = open('server/sensitive-data/data.txt','r').read()
-	data = data.rstrip('\n')
-	print data
-	print ("==============================")
+    print("Correct Password")
+    print("Successfully logged into system")
+    print("==============================")
+    with open('server/sensitive-data/data.txt', 'r') as f:
+        data = f.read().strip()
+        print(data)
+    print("==============================")
 else:
-       while not A == k2:
-       		print("Wrong Password!")
-		print("Logged out!")
-                break
+    print("Wrong Password!")
+    print("Logged out!")
+
 enda = time.time()
 
-print 'Time to complete calculations :'
-print enda - starta
+print('Time to complete calculations:')
+print(enda - starta)
