@@ -4,6 +4,7 @@ import os
 import time
 import jsonify
 app = Flask(__name__)
+user_session = {'logged_in': False}
 
 def verify_password(password, stored_password_hash):
     # Implement password verification logic here
@@ -105,17 +106,27 @@ def authorize():
                 # Authorization successful
                 with open('server/sensitive-data/data.txt', 'r') as f:
                     data = f.read().strip()
-                return render_template('authorize.html', message=f"Authorization successful! Data: {data}")
+                user_session['logged_in'] = True
+                return redirect('success')
             else:
                 # Authorization failed
-                return render_template('authorize.html', message="Authorization failed. ZKP verification failed.")
+                return render_template('failure.html', message="Authorization failed. ZKP verification failed.")
         else:
-            # Incorrect username or password
-            return render_template('authorize.html', message="Incorrect username or password.")
+            return render_template('failure.html', message="Authorization failed. ZKP verification failed.")
 
     # If request method is GET, render the authorize.html template
     return render_template('authorize.html', message=None)
 
+@app.route('/success')
+def success():
+    if user_session.get('logged_in'):
+        return render_template('success.html')
+    else:
+        return redirect('authorize')
 
+@app.route('/logout')
+def logout():
+    user_session['logged_in'] = False
+    return redirect('/')
 if __name__ == '__main__':
     app.run(debug=True)

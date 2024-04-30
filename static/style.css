@@ -41,6 +41,15 @@ form {
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
 }
 
+p {
+    width: 300px; /* Adjust as needed */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+
 label {
     display: block;
     margin-bottom: 10px;
